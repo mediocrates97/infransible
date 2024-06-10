@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+
+  roles:
+    - nginx
+    - docker
+    - docker-compose
+    - change-nginx-port
