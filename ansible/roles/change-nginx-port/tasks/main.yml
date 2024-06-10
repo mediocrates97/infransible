@@ -1,0 +1,13 @@
+---
+- name: Change Nginx port from 80 to 81
+  lineinfile:
+    path: /etc/nginx/sites-available/default
+    regexp: 'listen 80 default_server;'
+    line: 'listen 81 default_server;'
+  become: true
+
+- name: Restart Nginx
+  systemd:
+    name: nginx
+    state: restarted
+  become: true
